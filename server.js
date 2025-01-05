@@ -15,7 +15,7 @@ console.log('Port:', port);
 const apiKey = process.env.GROQ_API_KEY;
 
 app.get('/study', async (req, res) => {
-    const query = 
+    const query = req.body.query;
     const messages = [
         {
             role: 'system',
@@ -41,14 +41,14 @@ app.get('/study', async (req, res) => {
     try {
         const response = await axios.post(url, 
         {
+            
+            {
+                messages: messages,
+                model: 'llama-3.3-70b-versatile'
+            },
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${apiKey}`
-            },
-            
-            data: {
-                messages: messages,
-                model: 'llama-3.3-70b-versatile'
             }
         });
         res.json(response.data);
