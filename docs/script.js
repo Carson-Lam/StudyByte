@@ -23,7 +23,7 @@ document.getElementById('problemForm').addEventListener('submit', async function
     })
 
     try {
-        const response = await fetch(`http://localhost:5000/study`, {
+        const response = await fetch(`https://studybyte.onrender.com/study`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
