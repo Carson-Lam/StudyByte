@@ -13,6 +13,7 @@ let conversationHistory = [{
 }]
 
 document.getElementById('problemForm').addEventListener('submit', async function (event) {
+    
     event.preventDefault();
     const query = document.getElementById('problem').value;
     document.getElementById('response').innerHTML = "Fetching response from Groq AI...";
@@ -22,7 +23,7 @@ document.getElementById('problemForm').addEventListener('submit', async function
         content: query
     })
 
-    try {
+    try {       
         const response = await fetch(`https://studybyte.onrender.com/study`, {
             method: 'POST',
             headers: {
@@ -33,8 +34,8 @@ document.getElementById('problemForm').addEventListener('submit', async function
                 model: 'llama-3.3-70b-versatile'
             })
         });
+        console.log('HIIIIII');
 
-        if (!response.ok) throw new Error('Failed to fetch response from backend server');
         const completion = await response.json();
 
         conversationHistory.push({
