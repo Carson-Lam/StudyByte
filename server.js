@@ -7,7 +7,7 @@ const app = express();
 
 dotenv.config();
 
-app.use(cors());
+app.use(cors({origin:'https://studybyte.onrender.com'}));
 app.use(express.json());
 
 const port = process.env.PORT || 5000;
