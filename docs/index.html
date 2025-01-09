@@ -7,13 +7,17 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body class = "text-center">
+        <div class = ".container-fluid mt-3 mx-auto" style="width:550px;">
         <h1>StudyByte</h1>
         <form id="problemForm">
             <label for="problem">Enter your study query:</label>
             <br>
-            <input type="text" id="problem" name="problem" required placeholder="Example: factor x^2+2x+1" style="width: 70%">
-            <button type="submit" class="btn btn-primary">Get GPT Response</button>
+            <input type="text" id="problem" name="problem" required placeholder="Example: factor x^2+2x+1" style="width: 90%">
+            <hr>
+            <button type="submit" id="meanButton" class="btn btn-danger">Get GPT Response</button>
+            <button type="submit" id="niceButton" class="btn btn-success">Get GPT Response</button>
         </form>
+        </div>
         <div id = "response" class="mt-4 ms-5 me-5"></div>
         <!--Script-->
         <script src="script.js"></script>
