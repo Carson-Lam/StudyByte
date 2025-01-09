@@ -1,24 +1,46 @@
-let conversationHistory = [{
+let conversationHistoryNice = [{
     role: 'system',
     content: [
         /* PROMPT V2 */
-        "You are a helpful, very knowledgeable patient tutor for all contemporary",
-        "subjects spanning a high school (grade 9) to university",
-        "(entry undergraduate) level. This mainly includes but is not limited to",
-        "mathematics, English, chemistry, physics, biology, world and US history",
-        "You double check all your claims before responding to your best ability.",
-        "This means that if there is something you are not sure about, you address it as such.",
-        "You maintain a respectful, casual, approachable yet scientific tone."
+        // "You are a helpful, very knowledgeable patient tutor for all contemporary",
+        // "subjects spanning a high school (grade 9) to university",
+        // "(entry undergraduate) level. This mainly includes but is not limited to",
+        // "mathematics, English, chemistry, physics, biology, world and US history",
+        // "You double check all your claims before responding to your best ability.",
+        // "This means that if there is something you are not sure about, you address it as such.",
+        // "You maintain a respectful, casual, approachable yet scientific tone."
+        "You are very nice and refrain from using any harsh language"
     ].join('')
 }]
 
-document.getElementById('problemForm').addEventListener('submit', async function (event) {
+let conversationHistoryMean = [{
+    role: 'system',
+    content: [
+        /* PROMPT V2 */
+        // "You are a helpful, very knowledgeable patient tutor for all contemporary",
+        // "subjects spanning a high school (grade 9) to university",
+        // "(entry undergraduate) level. This mainly includes but is not limited to",
+        // "mathematics, English, chemistry, physics, biology, world and US history",
+        // "You double check all your claims before responding to your best ability.",
+        // "This means that if there is something you are not sure about, you address it as such.",
+        // "You maintain a respectful, casual, approachable yet scientific tone."
+        "You are very mean and use a lot of harsh language"
+    ].join('')
+}]
+
+document.getElementById('niceButton').addEventListener('click', async function (event) {
+    conversationHistoryMean.length = 0;
+
+    conversationHistoryNice.push({
+        role: 'system',
+        content: "You are a very nice person who likes helping people"
+    })
     
     event.preventDefault();
     const query = document.getElementById('problem').value;
     document.getElementById('response').innerHTML = "Fetching response from Groq AI...";
 
-    conversationHistory.push({
+    conversationHistoryNice.push({
         role: 'user',
         content: query
     })
@@ -30,14 +52,14 @@ document.getElementById('problemForm').addEventListener('submit', async function
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                messages: conversationHistory,
+                messages: conversationHistoryNice,
                 model: 'llama-3.3-70b-versatile'
             })
         });
 
         const completion = await response.json();
 
-        conversationHistory.push({
+        conversationHistoryNice.push({
             role: 'assistant',
             content: completion.choices[0].message.content
         })
@@ -50,13 +72,19 @@ document.getElementById('problemForm').addEventListener('submit', async function
     }
 });
 
-ocument.getElementById('meanButton').addEventListener('submit', async function (event) {
-    
+document.getElementById('meanButton').addEventListener('click', async function (event) {
+    conversationHistoryNice.length = 0;
+
+    conversationHistoryMean.push({
+        role: 'system',
+        content: "You are a very mean person who does not like helping people"
+    })
+
     event.preventDefault();
     const query = document.getElementById('problem').value;
     document.getElementById('response').innerHTML = "Fetching response from Groq AI...";
 
-    conversationHistory.push({
+    conversationHistoryMean.push({
         role: 'user',
         content: query
     })
@@ -68,14 +96,14 @@ ocument.getElementById('meanButton').addEventListener('submit', async function (
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                messages: conversationHistory,
+                messages: conversationHistoryMean,
                 model: 'llama-3.3-70b-versatile'
             })
         });
 
         const completion = await response.json();
 
-        conversationHistory.push({
+        conversationHistoryMean.push({
             role: 'assistant',
             content: completion.choices[0].message.content
         })
