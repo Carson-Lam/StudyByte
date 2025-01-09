@@ -17,13 +17,39 @@
             <input type="text" id="problem" name="problem" required placeholder="Example: factor x^2+2x+1"
                 style="width: 90%">
             <hr>
-            <button type="submit" id="niceButton" class="btn btn-success">Get GPT Response</button>
-            <button type="submit" id="meanButton" class="btn btn-danger">Get GPT Response</button>
+            <button id="niceButton" class="btn btn-success" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseNice" aria-expanded="false" aria-controls="collapseNice">
+                Generate nice AI response
+            </button>
+            <button id="meanButton" class="btn btn-danger" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseMean" aria-expanded="false" aria-controls="collapseMean">
+                Generate mean AI response
+            </button>
+            <!-- <button type="submit" id="niceButton" class="btn btn-success">Get nice AI Response</button> -->
+            <!-- <button type="submit" id="meanButton" class="btn btn-danger">Get mean AI Response</button> -->
         </form>
     </div>
-    <div id="response" class="mt-4 ms-5 me-5"></div>
+    <!-- <div id="response" class="mt-4 ms-5 me-5"></div> -->
+    <div class="container mt-3">
+        <div class="row justify-content-center g-0">
+            <div class="col-auto collapse" id="collapseNice">
+                <div class="card card-body text-center" id="responseNice">Nice AI response will appear here.
+                </div>
+            </div>
+            <div class="col-auto collapse" id="collapseMean">
+                <div class="card card-body text-center" id="responseMean">Mean AI response will appear here.
+                </div>
+            </div>
+        </div>
+    </div>
     <!--Script-->
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

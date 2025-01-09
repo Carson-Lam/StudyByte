@@ -28,7 +28,7 @@ let conversationHistoryMean = [{
     ].join('')
 }]
 
-document.getElementById('niceButton').addEventListener('click', async function (event) {
+document.getElementById('collapseNice').addEventListener('shown.bs.collapse', async function (event) {
     conversationHistoryMean.length = 0;
 
     conversationHistoryNice.push({
@@ -38,7 +38,10 @@ document.getElementById('niceButton').addEventListener('click', async function (
     
     event.preventDefault();
     const query = document.getElementById('problem').value;
-    document.getElementById('response').innerHTML = "Fetching response from Groq AI...";
+
+    document.getElementById('responseNice').innerHTML = "Fetching response from Groq AI...";
+
+
 
     conversationHistoryNice.push({
         role: 'user',
@@ -65,14 +68,14 @@ document.getElementById('niceButton').addEventListener('click', async function (
         })
 
 
-        document.getElementById('response').innerHTML = `<p><strong>Groq AI Response:</strong> ${completion.choices[0].message.content}</p>`;
+        document.getElementById('responseNice').innerHTML = `<p><strong>Nice Groq AI Response:</strong> ${completion.choices[0].message.content}</p>`;
     } catch (error) {
         console.error('Error: ', error.message);
-        document.getElementById('response').innerHTML = 'Error fetching response'
+        document.getElementById('responseNice').innerHTML = 'Error fetching response'
     }
 });
 
-document.getElementById('meanButton').addEventListener('click', async function (event) {
+document.getElementById('collapseMean').addEventListener('shown.bs.collapse', async function (event) {
     conversationHistoryNice.length = 0;
 
     conversationHistoryMean.push({
@@ -82,7 +85,7 @@ document.getElementById('meanButton').addEventListener('click', async function (
 
     event.preventDefault();
     const query = document.getElementById('problem').value;
-    document.getElementById('response').innerHTML = "Fetching response from Groq AI...";
+    document.getElementById('responseMean').innerHTML = "Fetching response from Groq AI...";
 
     conversationHistoryMean.push({
         role: 'user',
@@ -109,9 +112,9 @@ document.getElementById('meanButton').addEventListener('click', async function (
         })
 
 
-        document.getElementById('response').innerHTML = `<p><strong>Groq AI Response:</strong> ${completion.choices[0].message.content}</p>`;
+        document.getElementById('responseMean').innerHTML = `<p><strong>Mean Groq AI Response:</strong> ${completion.choices[0].message.content}</p>`;
     } catch (error) {
         console.error('Error: ', error.message);
-        document.getElementById('response').innerHTML = 'Error fetching response'
+        document.getElementById('responseMean').innerHTML = 'Error fetching response'
     }
 });
