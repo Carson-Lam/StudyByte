@@ -17,13 +17,13 @@
             <input type="text" id="problem" name="problem" required placeholder="Example: factor x^2+2x+1"
                 style="width: 90%">
             <hr>
-            <button id="niceButton" class="btn btn-success" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseNice" aria-expanded="false" aria-controls="collapseNice">
-                Generate nice AI response
+            <button id="shortButton" class="btn btn-primary expandable" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseShort" aria-expanded="false" aria-controls="collapseShort">
+                Short Answer (define/answer)
             </button>
-            <button id="meanButton" class="btn btn-danger" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseMean" aria-expanded="false" aria-controls="collapseMean">
-                Generate mean AI response
+            <button id="longButton" class="btn btn-primary expandable" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseLong" aria-expanded="false" aria-controls="collapseLong">
+                Long Answer (explanation)
             </button>
             <!-- <button type="submit" id="niceButton" class="btn btn-success">Get nice AI Response</button> -->
             <!-- <button type="submit" id="meanButton" class="btn btn-danger">Get mean AI Response</button> -->
@@ -32,12 +32,12 @@
     <!-- <div id="response" class="mt-4 ms-5 me-5"></div> -->
     <div class="container mt-3">
         <div class="row justify-content-center g-0">
-            <div class="col-auto collapse" id="collapseNice">
-                <div class="card card-body text-center" id="responseNice">Nice AI response will appear here.
+            <div class="col-auto collapse" id="collapseShort">
+                <div class="card card-body text-center" id="responseShort">Nice AI response will appear here.
                 </div>
             </div>
-            <div class="col-auto collapse" id="collapseMean">
-                <div class="card card-body text-center" id="responseMean">Mean AI response will appear here.
+            <div class="col-auto collapse" id="collapseLong">
+                <div class="card card-body text-center" id="responseLong">Mean AI response will appear here.
                 </div>
             </div>
         </div>
