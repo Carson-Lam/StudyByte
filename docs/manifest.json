@@ -1,0 +1,12 @@
+{
+    "manifest_version": 3,
+    "name": "StudyByte",
+    "version": "1.0.0",
+    "description": "An AI-Powered study helper extension for Google Chrome.",
+    "author": "Carson Lam",
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "StudyByte"
+    }
+
+}
