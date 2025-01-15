@@ -1,0 +1,17 @@
+[33mcommit 53e622f63483439900ce9e0a1b4869756b7185b6[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Carson Lam <lamcn51@gmail.com>
+Date:   Tue Jan 14 18:30:09 2025 -0500
+
+    README typo
+
+[33mcommit e9f5ea6e96775e574ea0540d56ac718ef3cd9f50[m
+Author: Carson Lam <lamcn51@gmail.com>
+Date:   Tue Jan 14 18:24:16 2025 -0500
+
+    README typo
+
+[33mcommit ea7933020eadcbc853d3da847cef5a22152eb838[m
+Author: Carson Lam <lamcn51@gmail.com>
+Date:   Tue Jan 14 18:20:50 2025 -0500
+
+    fixed collapsible element handling  on new prompt
