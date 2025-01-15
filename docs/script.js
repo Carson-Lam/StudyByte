@@ -115,7 +115,7 @@ document.getElementById('collapseShort').addEventListener('shown.bs.collapse', a
         })
 
 
-        document.getElementById('responseShort').innerHTML = `<p><strong>Nice Groq AI Response:</strong> ${completion.choices[0].message.content}</p>`;
+        document.getElementById('responseShort').innerHTML = `<p><strong>Short Groq AI Response:</strong> ${completion.choices[0].message.content}</p>`;
     } catch (error) {
         console.error('Error: ', error.message);
         document.getElementById('responseShort').innerHTML = 'Error fetching response'
@@ -173,7 +173,7 @@ document.getElementById('collapseLong').addEventListener('shown.bs.collapse', as
         })
 
 
-        document.getElementById('responseLong').innerHTML = `<p><strong>Mean Groq AI Response:</strong> ${completion.choices[0].message.content}</p>`;
+        document.getElementById('responseLong').innerHTML = `<p><strong>Long Groq AI Response:</strong> ${completion.choices[0].message.content}</p>`;
     } catch (error) {
         console.error('Error: ', error.message);
         document.getElementById('responseLong').innerHTML = 'Error fetching response'
